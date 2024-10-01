@@ -48,6 +48,10 @@ Our dataset contains the target label, making this a supervised learning task. A
 3. Documentation of scikit-learn 0.21.3¶ (no date). _Learn_. Available at: [https://scikit-learn.org/0.21/documentation.html](https://scikit-learn.org/0.21/documentation.html) (Accessed: 28 September 2024).
 4. XGBoost documentation (no date). _XGBoost Documentation - xgboost 2.1.1 documentation_. Available at: [https://xgboost.readthedocs.io/en/stable/](https://xgboost.readthedocs.io/en/stable/) (Accessed: 28 September 2024).
 
+## Gantt Chart
+
+[View on Google Drive](https://docs.google.com/spreadsheets/d/19o6ZakfyxPPRYyXEH4_JTpknSqOLHHVz/edit?usp=sharing&ouid=112025817987775005881&rtpof=true&sd=true)
+
 ## Contributions
 
 | Name               | Contributions                                            |
@@ -57,3 +61,7 @@ Our dataset contains the target label, making this a supervised learning task. A
 | Rustam Jumazhanov  | Literature Review, GitHub Pages Setup (Jekyll & Docker)  |
 | Oleksandr Horielko | Introduction, Literature Review, Reference Section       |
 | Aldinash Seitenov  | Data Processing, Machine Learning Algorithms/Model       |
+
+## Video Presentation
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C_gpO43Xtxg?si=Y1Oo1im8FzmFBEA3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

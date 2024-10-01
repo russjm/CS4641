@@ -2,7 +2,9 @@
 layout: default
 ---
 
-## Group 115
+## CS 4641 Project Proposal
+
+### Group 115
 
 ## Introduction and Background
 

@@ -94,3 +94,17 @@ Our Random Forest model achieved an accuracy rate of 77%, which is a decently hi
 
 ### What are the next steps you plan to take?
 Now that we have a baseline accuracy from our Random Forest Classifier, there are several things we can do to improve upon it. First of all, there are several other types of models we can try training to improve our results, such as Gradient Boosting Classifiers or even Neural Networks. Secondly, we can employ hyperparameter tuning to fine-tune our current Random Forest. There are a couple of key hyperparameters that can be tuned, namely the number of trees used in the model, as well as the number of features from which we select our splitting feature at each tree split. Lastly, we can further process our data and shrink its dimensionality by identifying the most important features. This could be done using PCA, and may improve the results of the training process by eliminating redundant features.
+
+## Gantt Chart
+
+[View on Google Drive](https://docs.google.com/spreadsheets/d/19o6ZakfyxPPRYyXEH4_JTpknSqOLHHVz/edit?usp=sharing&ouid=112025817987775005881&rtpof=true&sd=true)
+
+## Contributions
+
+| Name               | Contributions                                            |
+| ------------------ | -------------------------------------------------------- |
+| Aman Patel         | Gradient Boosting, EDA, Metrics, Visualizations          |
+| Marko Gjurevski    | Random Forest, EDA, Metrics, Visualizations              |
+| Rustam Jumazhanov  | PCA, Metrics, EDA, Visualizations                        |
+| Oleksandr Horielko | KNN, Metrics, EDA, Visualizations                        |
+| Aldinash Seitenov  | Logistic Regression, Metrics, EDA, Visualizations        |

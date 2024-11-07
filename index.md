@@ -66,7 +66,7 @@ Our dataset contains the target label, making this a supervised learning task. A
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/C_gpO43Xtxg?si=Y1Oo1im8FzmFBEA3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-### Midterm Checkpoint
+# Midterm Checkpoint
 
 ## Methods
 Our dataset was already clean, so for the data preprocessing step we performed some encoding operations. First, we used LabelEncoder to transform our target variable (‘Graduate’ or ‘Dropout’) into binary values, where 1 represents Graduate and 0 represents Dropout. We also applied one-hot encoding to categorical features using pandas get_dummies() function. We then split our data into training and testing sets, preparing it for our RandomForest model.
@@ -77,7 +77,7 @@ For our project, we decided to start with the Random Forest model, since it’s 
 
 ## Results/Discussion
 
-# Discuss the results of your methods and present visualizations and quantitative scoring metrics. What does your visualization/metric tell you?
+### Discuss the results of your methods and present visualizations and quantitative scoring metrics. What does your visualization/metric tell you?
 
 ![Correlation Matrix](Unknown-4.png)
 
@@ -89,8 +89,8 @@ Feature Importance plot reveals which features contribute most significantly to 
 Our model achieved impressive performance metrics, with an accuracy of 0.89, precision of 0.88, recall of 0.89, and an F1-score of 0.88. Through our feature importance analysis, we discovered that curricular units in the 2nd semester (both credited and enrolled) were the strongest predictors of dropout probability. Age and previous qualifications also appeared as significant factors, while scholarship status showed a lower importance in the model's decision making.
 
 
-# Why did your model perform well/poorly?
+### Why did your model perform well/poorly?
 Our Random Forest model achieved an accuracy rate of 77%, which is a decently high score. The initial dataset was clean so our model didn’t have to deal with outliers and noisy data. Another reason for a high performance is the model itself. Random Forest is a very robust and flexible model since it consists of multiple decision trees that are trained on different subsets of data. Multiple trees help the model avoid overfitting and make it less sensitive to any changes in the dataset.
 
-# What are the next steps you plan to take?
+### What are the next steps you plan to take?
 Now that we have a baseline accuracy from our Random Forest Classifier, there are several things we can do to improve upon it. First of all, there are several other types of models we can try training to improve our results, such as Gradient Boosting Classifiers or even Neural Networks. Secondly, we can employ hyperparameter tuning to fine-tune our current Random Forest. There are a couple of key hyperparameters that can be tuned, namely the number of trees used in the model, as well as the number of features from which we select our splitting feature at each tree split. Lastly, we can further process our data and shrink its dimensionality by identifying the most important features. This could be done using PCA, and may improve the results of the training process by eliminating redundant features.

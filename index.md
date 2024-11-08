@@ -69,7 +69,7 @@ Our dataset contains the target label, making this a supervised learning task. A
 # Midterm Checkpoint
 
 ## Methods
-Our dataset was already clean, so for the data preprocessing step we performed some encoding operations. First, we used LabelEncoder to transform our target variable (‘Graduate’ or ‘Dropout’) into binary values, where 1 represents Graduate and 0 represents Dropout. We also applied one-hot encoding to categorical features using pandas get_dummies() function. We then split our data into training and testing sets, preparing it for our RandomForest model.
+Our dataset was already clean, so for the data preprocessing step we performed some encoding operations. First, we used LabelEncoder to transform our target variable (‘Graduate’ or ‘Dropout’) into binary values, where 1 represents Graduate and 0 represents Dropout. We also applied one-hot encoding to categorical features using pandas `get_dummies()` function. We then split our data into training and testing sets, preparing it for our RandomForest model.
 
 For our project, we decided to start with the Random Forest model, since it’s generally good for handling different types of data and pretty reliable for the classification tasks. It also allowed us to see which features from the dataset are the most important (see feature importance plot below), helping us understand the key factors influencing student dropout rates. The ensemble nature of Random Forest also makes it naturally robust against overfitting, which was important given the size of our dataset.
 
@@ -83,10 +83,10 @@ For our project, we decided to start with the Random Forest model, since it’s 
 
 ![Feature Distribution Histograms](Unknown-5.png)
 
-As part of the EDA of the data set, we visualized histograms for distributions of each of the features and correlation matrix of the features. Correlation matrix illustrates the relationships between different features and the target classes. Strong correlations can indicate which features are closely related to specific outcomes.The histograms show the frequency of data points within specified bins for each feature, allowing comparison across classes. It allows us to better understand the nature of the data, i.e. the distributions of different features and how they relate to each other.
+As part of the EDA of the dataset, we visualized histograms for feature distributions and a correlation matrix for feature relationships. Correlation matrix shows the relationships between different features and the target classes. Strong correlations can indicate which features are closely related to specific outcomes.The histograms show the frequency of data points within specified bins for each feature, allowing comparison across classes. It allows us to better understand the nature of the data, i.e. the distributions of different features and how they relate to each other.
 Feature Importance plot reveals which features contribute most significantly to the model's predictions. High-importance features are those that the model relies on heavily to make accurate classifications. 
 
-Our model performed well, achieving an accuracy of 0.77, precision of 0.84, recall of 0.77, and an F1-score of 0.80. By analying our feature importance plot, we discovered that curricular units in the 2nd and 1st semester (both approved and graded) were the strongest predictors of dropout rates. Age, tuition fees and course also appeared as siginificant factors, while features like previous qualification, attendance and nationality showed lower importance.
+Our model performed well, achieving an accuracy of 0.77, precision of 0.84, recall of 0.77, and an F1-score of 0.80. By analyzing the feature importance plot, we discovered that curricular units in the 2nd and 1st semester (both approved and graded) were the strongest predictors of dropout rates. Age, tuition fees and course also appeared as significant factors, while features like previous qualification, attendance and nationality showed lower importance.
 
 
 ### Why did your model perform well/poorly?

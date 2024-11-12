@@ -79,7 +79,7 @@ We applied PCA for visualization to make our high-dimensional data easier to und
 
 While PCA was not necessary for our baseline Random Forest model, it can help us simplify the dataset when we move to models that might struggle with many features (such as KNN which tends to perform better with fewer dimensions). Using PCA to reduce the number of features can make KNN more efficient and possibly improve its accuracy. PCA also helps reduce redundancy by combining correlated features and leaving those that explain the highest variance in the data.
 
-![PCA Explained Variance](Unknown-3.png)
+![PCA Explained Variance](PCA-variance.png)
 
 ## Results/Discussion
 
@@ -94,7 +94,7 @@ Feature Importance plot reveals which features contribute most significantly to 
 
 Our model performed well, achieving an accuracy of 0.77, precision of 0.84, recall of 0.77, and an F1-score of 0.80. By analyzing the feature importance plot, we discovered that curricular units in the 2nd and 1st semesters (both approved and graded) were the strongest predictors of dropout rates. Age, tuition fees, and course also appeared as significant factors, while features like previous qualification, attendance, and nationality showed lower importance.
 
-![PCA Explained Variance](Unknown-3.png)
+![PCA 2-D Plot](PCA-2D-plot.png)
 
 In our 2-D PCA plot, we see how the three target groups (Dropout, Graduate, and Enrolled) are distributed along the two main components. There’s some overlap, especially between Graduate and Enrolled, which tells us these groups share similar features and may be harder to separate. However, we can see areas where certain groups cluster together, showing that some separation is possible. This gives us a good sense of what we’re working with and what challenges we might face in classification.
 

@@ -4,7 +4,7 @@ layout: default
 
 <div style="display: flex; align-items: center; margin: 20px;">
   <span style="font-weight: bold; color: red; font-size: 2rem; margin-right: 10px;">
-    Click Button to skip to Final Report Section &#10132;&#10132;&#10132;
+    Skip to Final Report Section &#10132;&#10132;&#10132;
   </span>
   <button id="scroll-button" style="margin: 0; padding: 15px 30px; font-size: 18px; font-weight: bold;">Scroll to Final Report</button>
 </div>
@@ -121,7 +121,16 @@ Now that we have a baseline accuracy from our Random Forest Classifier, there ar
 
 <a id="final-report"></a>
 # Final Report
+
 ## Methods
+
+### PCA
+As part of data preprocessing, we used Principal Component Analysis (PCA) to reduce the dimensionality of our data while keeping most of the important information. The graph below shows the cumulative explained variance as a function of the number of PCA components. We can see that most of the variance is captured by the first few components, meaning we can reduce the dataset’s size without losing too much information. This helps make our models faster and easier to train.
+
+![PCA Explained Variance](PCA-variance.png)
+
+While PCA was not necessary for our baseline Random Forest model, it can help us simplify the dataset when we move to models that might struggle with a lot of features (such as KNN which tends to perform better with fewer dimensions). Using PCA to reduce the number of features can make KNN more efficient and possibly improve its accuracy. PCA also helps reduce redundancy by combining correlated features, which might also benefit other models by focusing on the most important parts of the data.
+
 ### Gradient Boosting
 One of the models we chose was a Gradient Boosting method, specifically XGBoost, as it is pretty effective at capturing complex patterns and can handle imbalanced datasets, which is important for our goal of predicting student dropout rates. The algorithm works by building a series of decision trees, where each tree focuses on correcting the errors from the previous ones, optimizing predictions using gradient descent. This model architecture is quite powerful and thus popular in many machine learning competitions.
 
@@ -140,6 +149,16 @@ The distance metric, such as Euclidean or Manhattan distance, is critical in def
 We chose KNN because of its interpretability and suitability for small to medium-sized datasets where simplicity and flexibility are important. KNN requires no training phase beyond storing the dataset, making it computationally inexpensive during training. It provides a useful benchmark model for comparing performance. 
 
 ## Results/Discussion
+
+### PCA
+
+In the 2-D PCA plot, we see how the three target groups (Dropout, Graduate, and Enrolled) are distributed along the two main components. There’s some overlap, especially between Graduate and Enrolled classes, which tells us these groups share similar features and may be harder to separate.
+
+Applying PCA to our dataset revealed limited benefits in terms of classification accuracy for most models. While PCA effectively reduced dimensionality and highlighted the separability of the target groups in the data, the original features already captured important patterns well. Ensemble models like Random Forest and XGBoost, which are naturally capable of handling correlated features, did not see significant performance gains from PCA.
+
+![PCA 2-D Plot](PCA-2D-plot.png)
+
+
 ### Gradient Boosting
 Our XGBoost model achieved an initial accuracy of 75.48%, reflecting decent performance given the complexity of the problem and the quality of the features in the dataset. This result improved to 76% after hyperparameter tuning using grid search, which optimized parameters such as the learning rate, maximum tree depth, and the number of estimators. However, the model's performance may still be constrained by the class imbalance in the dataset and noisy features, which could limit its ability to generalize effectively.
 
@@ -179,14 +198,6 @@ The baseline KNN model achieved an accuracy of 64.74%. Then, we applied hyperpar
 ![KNN Confusion Matrix](visualizations/knn_matrix.jpeg)
 ![KNN Result Table](visualizations/knn.png)
 
-### PCA
-We applied PCA for visualization to make our high-dimensional data easier to understand. By reducing the dataset to just two main components, we can see the overall structure and distribution of our target groups (Dropout, Graduate, Enrolled) on a simple 2D plot (see below). This helps us explore the data and get a sense of whether the groups are separated or mixed together, which can be useful later on for classification.
-
-While PCA was not necessary for our baseline Random Forest model, it can help us simplify the dataset when we move to models that might struggle with a lot of features (such as KNN that tends to perform better with fewer dimensions). Using PCA to reduce the number of features can make KNN more efficient and possibly improve its accuracy. PCA also helps reduce redundancy by combining correlated features, which might also benefit other models by focusing on the most important parts of the data.
-2-D PCA Plot
-
-In our 2-D PCA plot, we can see how the three target groups (Dropout, Graduate, and Enrolled) are distributed along the two main components. There’s some overlap, especially between Graduate and Enrolled, which tells us these groups share similar features and may be harder to separate. However, we can see areas where certain groups cluster together, showing that some separation is possible. This gives us a good sense of what we’re working with and what challenges we might face in classification.
-
 # Comparison
 As can be seen from our report, Random Forest provided the best accuracy on the test set among all the models we implemented, achieving 77%. This performance underscores its robustness and ability to handle complex relationships in the data. Compared to Logistic Regression, Random Forest is better suited for capturing non-linear patterns, which likely contributed to its higher accuracy. However, this robustness comes at the cost of interpretability. While the Random Forest feature importance plot provides some insights, the overall model remains more of a "black box" compared to Logistic Regression, which offers clear and interpretable coefficients.
 
@@ -195,8 +206,6 @@ Logistic Regression, achieving 75.9% accuracy after tuning, served as a strong b
 KNN, with a final accuracy of 69.37% after hyperparameter tuning, struggled the most among the models. Its sensitivity to the high dimensionality of the dataset (the curse of dimensionality) likely impacted its performance. Even after dimensionality reduction using PCA, the model’s accuracy did not improve significantly, highlighting its limitations in handling complex datasets with many features. Additionally, KNN's computational inefficiency during inference further reduces its practicality for larger amounts of data.
 
 Gradient Boosting, specifically XGBoost, performed slightly below Random Forest, achieving an accuracy of 76% after hyperparameter tuning. While XGBoost is adept at handling class imbalance and capturing complex patterns, its performance was slightly constrained by noisy features and the quality of the dataset. XGBoost has the advantage of providing robust results even in challenging scenarios and often requires more tuning compared to Random Forest from what we found.
-
-Lastly, applying PCA revealed limited benefits in terms of classification accuracy for most models. While PCA effectively reduced dimensionality and highlighted the separability of the target groups in the data, the original features already captured important patterns well. Ensemble models like Random Forest and XGBoost, which are naturally capable of handling correlated features, did not see significant performance gains from PCA.
 
 Tldr:
 

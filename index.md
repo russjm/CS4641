@@ -148,7 +148,6 @@ While PCA was not necessary for our baseline Random Forest model, it can help us
 
 In our 2-D PCA plot, we can see how the three target groups (Dropout, Graduate, and Enrolled) are distributed along the two main components. There’s some overlap, especially between Graduate and Enrolled, which tells us these groups share similar features and may be harder to separate. However, we can see areas where certain groups cluster together, showing that some separation is possible. This gives us a good sense of what we’re working with and what challenges we might face in classification.
 
-![PCA Visualization](visualizations/random_forest_4.png)
 ![PCA Variance](visualizations/random_forest_3.png)
 
 # Comparison

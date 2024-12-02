@@ -114,7 +114,6 @@ One of the models we chose was a Gradient Boosting method, specifically XGBoost,
 Random forest is a very robust and flexible model since it consists of multiple decision trees that are trained on different datasets creating by sampling with replacement. Multiple trees help the model avoid overfitting and make it less sensitive to any changes in the dataset by creating splits on random subsets of features.
 
 ![Random Forest Feature Importance](visualizations/random_forest_2.png)
-![Random Forest Visualization](visualizations/random_forest.png)
 
 ### Logistic Regression
 Logistic Regression is a model that assumes the log-odds of belonging in one class are related linearly to the features. This allows for the model to be easily trained using gradient descent on our data, creating a relatively robust decision boundary.

@@ -2,6 +2,17 @@
 layout: default
 ---
 
+<button id="scroll-button" style="margin: 20px; padding: 10px 20px; font-size: 16px;">Scroll to Final Report</button>
+
+<script>
+  document.getElementById('scroll-button').addEventListener('click', function () {
+    document.getElementById('final-report').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+
+
+
+
 ## CS 4641 Project Proposal
 
 ### Group 115
@@ -104,7 +115,7 @@ Our Random Forest model achieved an accuracy rate of 77%, which is a decently hi
 ### What are the next steps you plan to take?
 Now that we have a baseline accuracy from our Random Forest Classifier, there are several things we can do to improve upon it. First of all, there are several other types of models we can try training to improve our results, such as Gradient Boosting Classifiers or even Neural Networks. Secondly, we can employ hyperparameter tuning to fine-tune our current Random Forest. There are a couple of key hyperparameters that can be tuned, namely the number of trees used in the model, as well as the number of features from which we select our splitting feature at each tree split. Lastly, we can further process our data and shrink its dimensionality by identifying the most important features. This could be done using PCA, and may improve the results of the training process by eliminating redundant features.
 
-
+<a id="final-report"></a>
 # Final Report
 ## Methods
 ### Gradient Boosting

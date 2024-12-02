@@ -111,25 +111,49 @@ Now that we have a baseline accuracy from our Random Forest Classifier, there ar
 One of the models we chose was a Gradient Boosting method, specifically XGBoost, as it is pretty effective at capturing complex patterns and can handle imbalanced datasets, which is important for our goal of predicting student dropout rates. The algorithm works by building a series of decision trees, where each tree focuses on correcting the errors from the previous ones, optimizing predictions using gradient descent. This model architecture is quite powerful and thus popular in many machine learning competitions.
 
 ### Random Forest
-Random forest is a very robust and flexible model since it consists of multiple decision trees that are trained on different datasets creating by sampling with replacement. Multiple trees help the model avoid overfitting and make it less sensitive to any changes in the dataset by creating splits on random subsets of features.
+Random forest is a very robust and flexible model since it consists of multiple decision trees that are trained on different datasets creating by sampling with replacement. Multiple trees help the model avoid overfitting and make it less sensitive to any changes in the dataset by creating splits on random subsets of features. We chose random forest due to its many benefits listed above and ease of use. 
 
 ### Logistic Regression
-Logistic Regression is a model that assumes the log-odds of belonging in one class are related linearly to the features. This allows for the model to be easily trained using gradient descent on our data, creating a relatively robust decision boundary.
+Logistic Regression is a model that assumes the log-odds of belonging in one class are related linearly to the features. This allows for the model to be easily trained using gradient descent on our data, creating a relatively robust decision boundary. We chose Logistic Regression because it serves as a strong baseline model for classification tasks, offers simplicity, interpretability, and the ability to identify linear relationships between features and the target variable.
 
 ### KNN
 KNN is a simple model that uses a majority vote of the k-nearest neighbors of a new data point to make a prediction.
+The model makes predictions by identifying the k closest data points (neighbors) to a given query point and using their majority class (for classification) or average value (for regression) to determine the outcome. 
+
+The distance metric, such as Euclidean or Manhattan distance, is critical in defining the "closeness" of points, and the choice of k directly impacts the model's performance, with smaller values of k capturing local patterns and larger values generalizing over broader trends.
+
+We chose KNN because of its interpretability and suitability for small to medium-sized datasets where simplicity and flexibility are important. KNN requires no training phase beyond storing the dataset, making it computationally inexpensive during training. It provides a useful benchmark model for comparing performance. 
 
 ## Results/Discussion
 ### Gradient Boosting
-Our XGBoost model achieved an accuracy of 75.48%, which indicates decent performance, but it might be limited by the quality of the features in the dataset. We also tuned the hyperparameters using grid search, which helped us improve the model’s accuracy to 76%, but that could be limited due to class imbalance and noisy features.
+Our XGBoost model achieved an initial accuracy of 75.48%, reflecting decent performance given the complexity of the problem and the quality of the features in the dataset. This result improved to 76% after hyperparameter tuning using grid search, which optimized parameters such as the learning rate, maximum tree depth, and the number of estimators. However, the model's performance may still be constrained by the class imbalance in the dataset and noisy features, which could limit its ability to generalize effectively.
 
 ### Random Forest
-Our Random Forest model achieved an accuracy rate of 77%, which is one of the higher scores. The initial dataset was clean so our model didn’t have to deal with outliers and noisy data. This high score is due to the robustness of the model and the fact that it can train deep trees without overfitting. Below is a visualization of our random forest architecture:
+Our Random Forest model achieved an accuracy rate of 77%, which is one of the higher scores. The initial dataset was clean so our model didn’t have to deal with outliers and noisy data. This high score is due to the robustness of the model and the fact that it can train deep trees without overfitting. Below is a visualization of our random forest Feature Importance:
 
 ![Random Forest Feature Importance](visualizations/random_forest_2.png)
 
+Top Contributing Features:
+
+The features at the top of the plot have the highest importance scores, meaning they played the most significant role in the model's predictive performance.
+These are things like 2nd Semester Grades and Age at enrollment. 
+
+Moderately Important Features:
+
+Mid-ranked features contributed meaningfully but were not as crucial. These might represent secondary relationships or interact with other features to enhance prediction accuracy.
+
+These were things like in inflation rate and gender.
+Low-Contributing Features:
+
+Features with near-zero importance contributed very little to the model's predictions. These could include redundant, irrelevant, or noisy features. For example, nationality, international status, and whether the student has special needs. 
+
+
 ### Logistic Regression
-The baseline Logistic Regression model achieved an accuracy of 75%. We then slightly improved it by hyperparameter tuning with cross validation which identified that L1 penalty provides a better result. Our best model has an accuracy of 75.9%. The high score is likely due to the data containing linear patterns.
+The baseline Logistic Regression model achieved an accuracy of 75%, demonstrating its effectiveness as a linear classifier and serving as a strong baseline for comparison with more complex models. After applying hyperparameter tuning using cross-validation, we determined that the L1 penalty (lasso regularization) performed better than the default L2 penalty. This suggests that some features in the dataset were less relevant and L1 regularization helped by assigning their coefficients closer to zero. This refinement resulted in a slight performance improvement, with the best model achieving an accuracy of 75.9%.
+
+The high accuracy of the Logistic Regression model can be attributed to the presence of strong linear patterns in the data. These patterns enabled the model to effectively separate the classes without requiring more complex decision boundaries. Additionally, the model’s simplicity and low computational cost made it a reliable choice for initial experimentation and benchmarking.
+
+The confusion matrix revealed areas where the model struggled. This highlights an opportunity for further improvement using techniques like class weighting or oversampling to address imbalances and enhance the model’s ability to generalize to underrepresented classes.
 
 ![Logistic Regression Result Table](visualizations/logistic_regression_matrix.jpeg)
 
@@ -148,21 +172,37 @@ While PCA was not necessary for our baseline Random Forest model, it can help us
 In our 2-D PCA plot, we can see how the three target groups (Dropout, Graduate, and Enrolled) are distributed along the two main components. There’s some overlap, especially between Graduate and Enrolled, which tells us these groups share similar features and may be harder to separate. However, we can see areas where certain groups cluster together, showing that some separation is possible. This gives us a good sense of what we’re working with and what challenges we might face in classification.
 
 # Comparison
-As can be seen from our report, Random Forest provided the best accuracy on the test set among all the models we implemented. Compared to logistic regression, Random Forest handles complex relationships better, but it’s not as easy to interpret. On the other hand, it outperformed KNN in terms of efficiency and giving insights into feature importance. These results are somewhat expected since ensemble methods are specifically designed to capture complex relationships in the data using simple underlying models. 
+As can be seen from our report, Random Forest provided the best accuracy on the test set among all the models we implemented, achieving 77%. This performance underscores its robustness and ability to handle complex relationships in the data. Compared to Logistic Regression, Random Forest is better suited for capturing non-linear patterns, which likely contributed to its higher accuracy. However, this robustness comes at the cost of interpretability. While the Random Forest feature importance plot provides some insights, the overall model remains more of a "black box" compared to Logistic Regression, which offers clear and interpretable coefficients.
 
-We can also compare our models before and after PCA. Although we do not have computationally expensive models, we still tried to make them more efficient and reduce the feature space dimensionality. 
+Logistic Regression, achieving 75.9% accuracy after tuning, served as a strong baseline. Its performance demonstrates the presence of linear relationships in the data which makes it a reliable and computationally efficient choice for initial benchmarking. Its inability to capture non-linear patterns limited its predictive power compared to Random Forest and Gradient Boosting.
 
-As a result of applying PCA on the scaled data, our models didn’t show much improvement in their classification accuracy. PCA reduces dimensionality by creating uncorrelated components, but this can sometimes remove useful information along with noise. From the feature importance plot, our original features were already good at capturing important patterns, so PCA didn’t add much value to the performance of our models. So for example, running XGBoost on PCA-transformed data didn’t improve performance because XGBoost already handles correlated features and non-linear relationships well.
+KNN, with a final accuracy of 69.37% after hyperparameter tuning, struggled the most among the models. Its sensitivity to the high dimensionality of the dataset (the curse of dimensionality) likely impacted its performance. Even after dimensionality reduction using PCA, the model’s accuracy did not improve significantly, highlighting its limitations in handling complex datasets with many features. Additionally, KNN's computational inefficiency during inference further reduces its practicality for larger amounts of data.
+
+Gradient Boosting, specifically XGBoost, performed slightly below Random Forest, achieving an accuracy of 76% after hyperparameter tuning. While XGBoost is adept at handling class imbalance and capturing complex patterns, its performance was slightly constrained by noisy features and the quality of the dataset. XGBoost has the advantage of providing robust results even in challenging scenarios and often requires more tuning compared to Random Forest from what we found.
+
+Lastly, applying PCA revealed limited benefits in terms of classification accuracy for most models. While PCA effectively reduced dimensionality and highlighted the separability of the target groups in the data, the original features already captured important patterns well. Ensemble models like Random Forest and XGBoost, which are naturally capable of handling correlated features, did not see significant performance gains from PCA.
+
+tldr:
+
+Random Forest: Best overall performance, balancing robustness and accuracy, but less interpretable.
+
+Logistic Regression: Strong baseline with clear interpretability but limited in capturing non-linear relationships.
+
+Gradient Boosting (XGBoost): Strong performance with good handling of imbalanced datasets, slightly lower than Random Forest due to feature quality.
+
+KNN: Struggled with high dimensionality and inefficiency, making it less effective for this dataset.
 
 # Next Steps
 There are several things we can do in the future to improve our classification performance. First of all, there are several other types of models we might try training to improve our results, such as Neural Networks and SVM. Secondly, we can employ more sophisticated feature engineering and feature extraction techniques in order to remove multicollinearity in the data and achieve better performance. We can also focus on more advanced hyperparameter tuning and explore what other parameters can influence our models’ performance.
 
+There is a lot that can be done to build off of our work both in terms of the technical aspect of Machine Learning Models but also within the social good space. This work reveals interesting insights into what factors really do tend to contribute or lead to students dropping out. It is important to understand that correlation does not equal causation. We are feeding data into models but that does not account for the complex lives of humans. There is a clear pattern of having certain attributes and being of a certain demographic leading to a higher chance of not finishing your degree. There can be steps taken to ensure that all students are able to see graduation and therefore have a happpy and successful career. 
 
 
 
 
+## Final Report Video Presentation
 
-
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=wDphyhVChis" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
 

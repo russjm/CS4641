@@ -133,17 +133,18 @@ Our Random Forest model achieved an accuracy rate of 77%, which is one of the hi
 
 ![Random Forest Feature Importance](visualizations/random_forest_2.png)
 
-Top Contributing Features:
+#### Top Contributing Features:
 
 The features at the top of the plot have the highest importance scores, meaning they played the most significant role in the model's predictive performance.
 These are things like 2nd Semester Grades and Age at enrollment. 
 
-Moderately Important Features:
+#### Moderately Important Features:
 
 Mid-ranked features contributed meaningfully but were not as crucial. These might represent secondary relationships or interact with other features to enhance prediction accuracy.
 
 These were things like in inflation rate and gender.
-Low-Contributing Features:
+
+#### Low-Contributing Features:
 
 Features with near-zero importance contributed very little to the model's predictions. These could include redundant, irrelevant, or noisy features. For example, nationality, international status, and whether the student has special needs. 
 
@@ -182,7 +183,7 @@ Gradient Boosting, specifically XGBoost, performed slightly below Random Forest,
 
 Lastly, applying PCA revealed limited benefits in terms of classification accuracy for most models. While PCA effectively reduced dimensionality and highlighted the separability of the target groups in the data, the original features already captured important patterns well. Ensemble models like Random Forest and XGBoost, which are naturally capable of handling correlated features, did not see significant performance gains from PCA.
 
-tldr:
+Tldr:
 
 Random Forest: Best overall performance, balancing robustness and accuracy, but less interpretable.
 

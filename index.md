@@ -147,8 +147,6 @@ While PCA was not necessary for our baseline Random Forest model, it can help us
 
 In our 2-D PCA plot, we can see how the three target groups (Dropout, Graduate, and Enrolled) are distributed along the two main components. There’s some overlap, especially between Graduate and Enrolled, which tells us these groups share similar features and may be harder to separate. However, we can see areas where certain groups cluster together, showing that some separation is possible. This gives us a good sense of what we’re working with and what challenges we might face in classification.
 
-![PCA Variance](visualizations/random_forest_3.png)
-
 # Comparison
 As can be seen from our report, Random Forest provided the best accuracy on the test set among all the models we implemented. Compared to logistic regression, Random Forest handles complex relationships better, but it’s not as easy to interpret. On the other hand, it outperformed KNN in terms of efficiency and giving insights into feature importance. These results are somewhat expected since ensemble methods are specifically designed to capture complex relationships in the data using simple underlying models. 
 

@@ -3,8 +3,10 @@ layout: default
 ---
 
 <div style="display: flex; align-items: center; margin: 20px;">
-  <span style="font-weight: bold; margin-right: 10px;">Click Button to skip to Final Report Section -></span>
-  <button id="scroll-button" style="margin: 0; padding: 10px 20px; font-size: 16px; font-weight: bold;">Scroll to Final Report</button>
+  <span style="font-weight: bold; color: red; font-size: 2rem; margin-right: 10px;">
+    Click Button to skip to Final Report Section &#10132;&#10132;&#10132;
+  </span>
+  <button id="scroll-button" style="margin: 0; padding: 15px 30px; font-size: 18px; font-weight: bold;">Scroll to Final Report</button>
 </div>
 
 <script>
@@ -12,6 +14,7 @@ layout: default
     document.getElementById('final-report').scrollIntoView({ behavior: 'smooth' });
   });
 </script>
+
 
 
 ## CS 4641 Project Proposal

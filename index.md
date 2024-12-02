@@ -206,13 +206,12 @@ There is a lot that can be done to build off of our work both in terms of the te
 <iframe 
   width="560" 
   height="315" 
-  src="https://www.youtube.com/watch?v=wDphyhVChis" 
+  src="https://www.youtube.com/embed/wDphyhVChis" 
   title="YouTube video player" 
   frameborder="0" 
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
   allowfullscreen>
 </iframe>
-
 
 
 

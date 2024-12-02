@@ -105,9 +105,6 @@ Our Random Forest model achieved an accuracy rate of 77%, which is a decently hi
 Now that we have a baseline accuracy from our Random Forest Classifier, there are several things we can do to improve upon it. First of all, there are several other types of models we can try training to improve our results, such as Gradient Boosting Classifiers or even Neural Networks. Secondly, we can employ hyperparameter tuning to fine-tune our current Random Forest. There are a couple of key hyperparameters that can be tuned, namely the number of trees used in the model, as well as the number of features from which we select our splitting feature at each tree split. Lastly, we can further process our data and shrink its dimensionality by identifying the most important features. This could be done using PCA, and may improve the results of the training process by eliminating redundant features.
 
 
-
-
-
 # Final Report
 ## Methods
 ### Gradient Boosting
@@ -115,6 +112,8 @@ One of the models we chose was a Gradient Boosting method, specifically XGBoost,
 
 ### Random Forest
 Random forest is a very robust and flexible model since it consists of multiple decision trees that are trained on different datasets creating by sampling with replacement. Multiple trees help the model avoid overfitting and make it less sensitive to any changes in the dataset by creating splits on random subsets of features.
+![Random Forest Feature Importance](visualizations/random_forest_2.png)
+![Random Forest Visualization](visualizations/random_forest.png)
 
 ### Logistic Regression
 Logistic Regression is a model that assumes the log-odds of belonging in one class are related linearly to the features. This allows for the model to be easily trained using gradient descent on our data, creating a relatively robust decision boundary.
@@ -131,9 +130,12 @@ Our Random Forest model achieved an accuracy rate of 77%, which is one of the hi
 
 ### Logistic Regression
 The baseline Logistic Regression model achieved an accuracy of 75%. We then slightly improved it by hyperparameter tuning with cross validation which identified that L1 penalty provides a better result. Our best model has an accuracy of 75.9%. The high score is likely due to the data containing linear patterns.
+![Logistic Regression Result Table](visualizations/logistic_regression_matrix.jpeg)
 
 ### KNN
 The baseline KNN model achieved an accuracy of 64.74%. Then, we applied hyperparameter tuning, and our model experienced a slight increase in the accuracy, reaching 69.37%. As we can see, the adjustment of the number of weights k, distance metrics, weights, and algorithms resulted in an improved performance. It is likely that KNN in this case suffers from the high dimensionality of our data set, known as the curse of dimensionality.Even though hyperparameter tuning slightly boosted the model performance, the number of chosen neighbors could have led to lower performance. We should consider some ways to increase the model accuracy. Possible solutions include better feature selection, taking care of the imbalanced dataset using SMOTE, and more advanced hyperparameter tuning.
+![KNN Confusion Matrix](visualizations/knn_matrix.jpeg)
+![KNN Result Table](visualizations/knn.png)
 
 ### PCA
 We applied PCA for visualization to make our high-dimensional data easier to understand. By reducing the dataset to just two main components, we can see the overall structure and distribution of our target groups (Dropout, Graduate, Enrolled) on a simple 2D plot (see below). This helps us explore the data and get a sense of whether the groups are separated or mixed together, which can be useful later on for classification.
@@ -142,7 +144,8 @@ While PCA was not necessary for our baseline Random Forest model, it can help us
 2-D PCA Plot
 
 In our 2-D PCA plot, we can see how the three target groups (Dropout, Graduate, and Enrolled) are distributed along the two main components. There’s some overlap, especially between Graduate and Enrolled, which tells us these groups share similar features and may be harder to separate. However, we can see areas where certain groups cluster together, showing that some separation is possible. This gives us a good sense of what we’re working with and what challenges we might face in classification.
-
+![PCA Visualization](visualizations/random_forest_4.png)
+![PCA Variance](visualizations/random_forest_3.png)
 
 # Comparison
 As can be seen from our report, Random Forest provided the best accuracy on the test set among all the models we implemented. Compared to logistic regression, Random Forest handles complex relationships better, but it’s not as easy to interpret. On the other hand, it outperformed KNN in terms of efficiency and giving insights into feature importance. These results are somewhat expected since ensemble methods are specifically designed to capture complex relationships in the data using simple underlying models. 

@@ -113,8 +113,6 @@ One of the models we chose was a Gradient Boosting method, specifically XGBoost,
 ### Random Forest
 Random forest is a very robust and flexible model since it consists of multiple decision trees that are trained on different datasets creating by sampling with replacement. Multiple trees help the model avoid overfitting and make it less sensitive to any changes in the dataset by creating splits on random subsets of features.
 
-![Random Forest Feature Importance](visualizations/random_forest_2.png)
-
 ### Logistic Regression
 Logistic Regression is a model that assumes the log-odds of belonging in one class are related linearly to the features. This allows for the model to be easily trained using gradient descent on our data, creating a relatively robust decision boundary.
 
@@ -126,7 +124,9 @@ KNN is a simple model that uses a majority vote of the k-nearest neighbors of a 
 Our XGBoost model achieved an accuracy of 75.48%, which indicates decent performance, but it might be limited by the quality of the features in the dataset. We also tuned the hyperparameters using grid search, which helped us improve the model’s accuracy to 76%, but that could be limited due to class imbalance and noisy features.
 
 ### Random Forest
-Our Random Forest model achieved an accuracy rate of 77%, which is one of the higher scores. The initial dataset was clean so our model didn’t have to deal with outliers and noisy data. This high score is due to the robustness of the model and the fact that it can train deep trees without overfitting.
+Our Random Forest model achieved an accuracy rate of 77%, which is one of the higher scores. The initial dataset was clean so our model didn’t have to deal with outliers and noisy data. This high score is due to the robustness of the model and the fact that it can train deep trees without overfitting. Below is a visualization of our random forest architecture:
+
+![Random Forest Feature Importance](visualizations/random_forest_2.png)
 
 ### Logistic Regression
 The baseline Logistic Regression model achieved an accuracy of 75%. We then slightly improved it by hyperparameter tuning with cross validation which identified that L1 penalty provides a better result. Our best model has an accuracy of 75.9%. The high score is likely due to the data containing linear patterns.

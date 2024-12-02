@@ -10,4 +10,4 @@
 - `/models/knn.ipynb`: Implementation of the KNN classifier.
 - `/data/`: Directory containing our dataset.
 - `/data/dataset.csv`: CSV file containing our data.
-- `/visualizations`: Different visualizations for our models.
+- `/visualizations/`: Different visualizations for our models.

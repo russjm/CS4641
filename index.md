@@ -2,15 +2,16 @@
 layout: default
 ---
 
-<button id="scroll-button" style="margin: 20px; padding: 10px 20px; font-size: 16px;">Scroll to Final Report</button>
+<div style="display: flex; align-items: center; margin: 20px;">
+  <span style="font-weight: bold; margin-right: 10px;">Click Button to skip to Final Report Section -></span>
+  <button id="scroll-button" style="margin: 0; padding: 10px 20px; font-size: 16px; font-weight: bold;">Scroll to Final Report</button>
+</div>
 
 <script>
   document.getElementById('scroll-button').addEventListener('click', function () {
     document.getElementById('final-report').scrollIntoView({ behavior: 'smooth' });
   });
 </script>
-
-
 
 
 ## CS 4641 Project Proposal

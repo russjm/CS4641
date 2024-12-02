@@ -112,6 +112,7 @@ One of the models we chose was a Gradient Boosting method, specifically XGBoost,
 
 ### Random Forest
 Random forest is a very robust and flexible model since it consists of multiple decision trees that are trained on different datasets creating by sampling with replacement. Multiple trees help the model avoid overfitting and make it less sensitive to any changes in the dataset by creating splits on random subsets of features.
+
 ![Random Forest Feature Importance](visualizations/random_forest_2.png)
 ![Random Forest Visualization](visualizations/random_forest.png)
 
@@ -130,10 +131,12 @@ Our Random Forest model achieved an accuracy rate of 77%, which is one of the hi
 
 ### Logistic Regression
 The baseline Logistic Regression model achieved an accuracy of 75%. We then slightly improved it by hyperparameter tuning with cross validation which identified that L1 penalty provides a better result. Our best model has an accuracy of 75.9%. The high score is likely due to the data containing linear patterns.
+
 ![Logistic Regression Result Table](visualizations/logistic_regression_matrix.jpeg)
 
 ### KNN
 The baseline KNN model achieved an accuracy of 64.74%. Then, we applied hyperparameter tuning, and our model experienced a slight increase in the accuracy, reaching 69.37%. As we can see, the adjustment of the number of weights k, distance metrics, weights, and algorithms resulted in an improved performance. It is likely that KNN in this case suffers from the high dimensionality of our data set, known as the curse of dimensionality.Even though hyperparameter tuning slightly boosted the model performance, the number of chosen neighbors could have led to lower performance. We should consider some ways to increase the model accuracy. Possible solutions include better feature selection, taking care of the imbalanced dataset using SMOTE, and more advanced hyperparameter tuning.
+
 ![KNN Confusion Matrix](visualizations/knn_matrix.jpeg)
 ![KNN Result Table](visualizations/knn.png)
 
@@ -144,6 +147,7 @@ While PCA was not necessary for our baseline Random Forest model, it can help us
 2-D PCA Plot
 
 In our 2-D PCA plot, we can see how the three target groups (Dropout, Graduate, and Enrolled) are distributed along the two main components. There’s some overlap, especially between Graduate and Enrolled, which tells us these groups share similar features and may be harder to separate. However, we can see areas where certain groups cluster together, showing that some separation is possible. This gives us a good sense of what we’re working with and what challenges we might face in classification.
+
 ![PCA Visualization](visualizations/random_forest_4.png)
 ![PCA Variance](visualizations/random_forest_3.png)
 

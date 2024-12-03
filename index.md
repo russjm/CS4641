@@ -247,8 +247,8 @@ There is a lot that can be done to build off of our work both in terms of the te
 
 | Name               | Contributions                                            |
 | ------------------ | -------------------------------------------------------- |
-| Aman Patel         | Gradient Boosting, EDA, Metrics, Visualizations          |
-| Marko Gjurevski    | Random Forest, EDA, Metrics, Visualizations              |
-| Rustam Jumazhanov  | PCA, Metrics, EDA, Visualizations                        |
-| Oleksandr Horielko | KNN, Metrics, EDA, Visualizations                        |
-| Aldinash Seitenov  | Logistic Regression, Metrics, EDA, Visualizations        |
+| Aman Patel         | Gradient Boosting, EDA, Metrics, Visualizations, Final Slides          |
+| Marko Gjurevski    | Random Forest, EDA, Metrics, Visualizations, Final Video             |
+| Rustam Jumazhanov  | PCA, Metrics, EDA, Visualizations, Final Video                        |
+| Oleksandr Horielko | KNN, Metrics, EDA, Visualizations, Final Video                       |
+| Aldinash Seitenov  | Logistic Regression, Metrics, EDA, Visualizations, Final Video        |
